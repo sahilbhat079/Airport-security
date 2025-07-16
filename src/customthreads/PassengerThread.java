@@ -2,6 +2,8 @@ package customthreads;
 
 import java.sql.SQLOutput;
 
+//we could have also used the interface runnable and then use the executors to perform the task
+//buy that we can achieve reusability of threads;
 public class PassengerThread extends Thread{
     private final int id;
     private final AirportSecurity area;
