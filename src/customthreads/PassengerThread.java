@@ -57,6 +57,16 @@ public class PassengerThread extends Thread{
             }
             System.out.println("=====> [PASSED] " + getName() + " passed through the GATE.\n");
 
+            //new not letting the passenger go before the increase count so that that will be used by the
+            //gateway manager to verify the passed passenger and let other do there work
+            synchronized (area.passLock){
+                area.passedCount++;
+                area.passLock.notifyAll();
+                if(area.passedCount==area.TOTAL_PASSENGERS){
+                    area.passLock.notify();
+                }
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -29,7 +29,9 @@ public class SecurityOfficerThread extends  Thread {
                 //now the security guard try to get lock on the scan lock
                 synchronized (area.scanLock){
                     System.out.println("\u001B[33m**** [SCANNING] " + getName() + " scanning " + p.getName() + "...\u001B[0m");
-                    //simulate some time it take
+                    //simulate some time it take it might show busy wait since we are in
+                    // synchronised block sleep does not release a lock that's why
+                    //we can have sleep outside the sync
                     Thread.sleep(1000 + new Random().nextInt(500));
 //                    thread will sleep but the lock is not released
                 }

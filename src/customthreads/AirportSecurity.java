@@ -20,6 +20,7 @@ public class AirportSecurity {
     public final Object scanLock=new Object();
     public final Object gateLock =new Object();
     public final Object shutdownLock=new Object();
+    public final Object passLock=new Object();
 
     // a list that hold all passengers passed the security check
     public final List<PassengerThread> readyPassengers=new ArrayList<>();
@@ -27,6 +28,7 @@ public class AirportSecurity {
     //variable to check all proceed or not and shutdown
     public volatile boolean shutdown =false;
     public int totalProcessed =0;
+    public int passedCount=0;
 
     //constructor
     public AirportSecurity(int TOTAL_PASSENGERS, int MAX_QUEUE_SIZE) {

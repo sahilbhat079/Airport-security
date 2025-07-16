@@ -25,7 +25,9 @@ public class Main {
 
         //Security officer
         SecurityOfficerThread officer1 = new SecurityOfficerThread(1, area);
+        SecurityOfficerThread officer2 = new SecurityOfficerThread(2, area);
         officer1.start();
+//        officer2.start();
 
         List<PassengerThread> passengers = new ArrayList<>();
 
